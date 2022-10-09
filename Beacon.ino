@@ -11,9 +11,10 @@
 void setup() {
    //
    //
-   //
+   //S
    Serial.begin(115200);
-   while ( !Serial ) delay(10);
+   //Se comenta la linea para quitar la necesidad de encender el monitor serie 
+   //while ( !Serial ) delay(10);
 
    Serial.println("-----------------------\n");
    Serial.println(" PRUEBAS iBeacon  ");
@@ -35,7 +36,7 @@ void setup() {
 
    //
    //
-   //
+   //iniciamos la transmisión del beacon
    startAdvertising();
 
    //
@@ -59,7 +60,7 @@ void startAdvertising() {
 
    //
    // Advertising packet
-   //
+   //Paquete de advertising
    Bluefruit.Advertising.addFlags(BLE_GAP_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE);
    Bluefruit.Advertising.addTxPower();
 
@@ -68,7 +69,7 @@ void startAdvertising() {
    //
 
 
-   // Include Name
+   // Añadimos el nombre
    Serial.println( " Bluefruit.Advertising.addName(); " );
    Bluefruit.Advertising.addName();
 
@@ -77,10 +78,13 @@ void startAdvertising() {
    //
    Serial.println( " Bluefruit.Advertising.setBeacon( elBeacon ); ");
 
+   //Asignamos el UUID del dipositivo
    uint8_t beaconUUID[16] = {
      'E', 'P', 'S', 'G', '-', 'G', 'T', 'I',
      '-', 'P', 'R', 'O', 'Y', '-', '3', 'A'
      };
+
+   //introducimos en el beacon los datos (UUID, Major, minor, Tx)
    BLEBeacon elBeacon( beaconUUID, 7, 34, 73 );
    elBeacon.setManufacturer( 0x004c ); // aple id
    Bluefruit.Advertising.setBeacon( elBeacon );
@@ -107,7 +111,7 @@ namespace Loop {
 };
 // ....................................................
 void loop() {
-
+   //vamos contando lo que se transmite
    using namespace Loop;
 
    cont++;
