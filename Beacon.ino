@@ -3,6 +3,7 @@
 // Ejemplo IBeaconBasico.ino
 // Adaptado de https://learn.adafruit.com/bluefruit-nrf52-feather-learning-guide/adafruitbluefruit
 // Jordi Bataller Mascarell
+// Comentado por: Jordi Doménech Belda
 // ----------------------------------------------------
 #include <bluefruit.h>
 // ----------------------------------------------------
